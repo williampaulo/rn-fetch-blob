@@ -117,7 +117,8 @@ public class RNFetchBlob extends ReactContextBaseJavaModule {
                         .setDataAndType(uriForFile, mime);
 
                 // Set flag to give temporary permission to external app to use FileProvider
-                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 // Validate that the device can open the file
                 PackageManager pm = getCurrentActivity().getPackageManager();
